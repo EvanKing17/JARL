@@ -4,15 +4,45 @@
 public class Character {
 
     String name, charClass, gender;
-    int health, mana, dex, intel, str, cons;
+    int health, mana, stamina, dex, intel, str, cons;
     Inventory inv;
 
-    public Character(String name, String gender, int health, int mana, int dex, int intel, int str, int cons) {
+    /**
+     * <h1>Constructor</h1>
+     * <p>Creates a new character with a given name and gender. This method should be used in conjunction with
+     * the setClass() method to create a new Character.</p>
+     * <p>This Class should <b>NEVER</b> be used to create anything except the main player character.</p>
+     * @param name The name that the character will be referred to as
+     * @param gender The gender of the character
+     */
+    public Character(String name, String gender) {
+        this.inv = new Inventory();
+        this.name = name;
+        this.gender = gender;
+    }
+
+    /**
+     * <h1>Constructor</h1>
+     * <p>Creates a character by taking all of their information at creation. This is not a good way to do it, as it means you
+     * have to brute force the stats. Instead use the Character constructor that takes two strings and then set the class
+     * using setClass()</p>
+     * @param name
+     * @param gender
+     * @param health
+     * @param mana
+     * @param stamina
+     * @param dex
+     * @param intel
+     * @param str
+     * @param cons
+     */
+    public Character(String name, String gender, int health, int mana, int stamina, int dex, int intel, int str, int cons) {
         this.inv = new Inventory();
         this.name = name;
         this.gender = gender;
         this.health = health;
         this.mana = mana;
+        this.stamina = stamina;
         this.dex = dex;
         this.intel = intel;
         this.str = str;
@@ -34,6 +64,9 @@ public class Character {
         }
     }
 
+    /**
+     * <p>Returns a character's stats (likely to be printed to the screen)</p>
+     */
     @Override
     public String toString() {
         String resultStr = "";
