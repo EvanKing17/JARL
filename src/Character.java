@@ -9,7 +9,14 @@ public class Character {
 
     public Character(String name, String gender, int health, int mana, int dex, int intel, int str, int cons) {
         this.inv = new Inventory();
-
+        this.name = name;
+        this.gender = gender;
+        this.health = health;
+        this.mana = mana;
+        this.dex = dex;
+        this.intel = intel;
+        this.str = str;
+        this.cons = cons;
     }
 
     /**
@@ -30,9 +37,12 @@ public class Character {
     @Override
     public String toString() {
         String resultStr = "";
-
-
-
+        resultStr += this.getName() + "\n";
+        resultStr += this.getCharClass() + "\n";
+        resultStr += "Dexterity: " + this.getDex() + "\n";
+        resultStr += "Intelligence: " + this.getIntel() + "\n";
+        resultStr += "Strength: " + this.getStr() + "\n";
+        resultStr += "Constitution: " + this.getCons() + "\n";
         return resultStr;
     }
 
