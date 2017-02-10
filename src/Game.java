@@ -6,9 +6,8 @@ import java.awt.print.Printable;
 public class Game {
 
     public static void main(String[] args) {
-        Character def = new Character("Evan", "Man", 100, 0, 6, 8, 10, 7);
-        Blade blade = new Blade("Evan's Sword", "A sword that belongs to Evan", 1000);
-        def.inv.addItem(blade);
+        Character def = new Character("Evan", "Male");
+        System.out.println(def.toString());
 
 
 
