@@ -9,6 +9,14 @@ public class Item {
         return type;
     }
 
+    public int getEffectNumber() {
+        if (this.getType().equals("BLADE")) {
+            Blade blade = (Blade) this;
+            return blade.getAttack();
+        }
+        return 0;
+    }
+
     public void setType(String type) {
         this.type = type;
     }

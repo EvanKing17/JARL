@@ -25,11 +25,12 @@ public class Character {
     }
 
     /**
-     * Returns a new character, while handling asking the player what their name, gender, and class is
-     * @param sc
+     * <h1>Creates a new Character</h1>
+     * <p>Returns a new character, while handling asking the player what their name, gender, and class is</p>
+     * @param sc - the input scanner
      * @return
      */
-    public static Character createNewChar(Scanner sc) {
+    public static Character createNewChar(Scanner sc, Inventory inv) {
         String name, gender;
         System.out.println("Please enter your character's name: ");
         name = sc.nextLine();
@@ -37,17 +38,18 @@ public class Character {
         gender = sc.nextLine();
         Character temp = new Character(name, gender);
 
+        //While the class selection is not acceptable, prompt continously
         String classSelection = "";
         while (!(classSelection.equals("1") || classSelection.equals("2") || classSelection.equals("3"))) {
             System.out.println("What class is your character?\n1) Warrior\n2) Wizard\n3) Rogue");
             classSelection = sc.nextLine();
         }
 
-        System.out.println("The class selection is: " + classSelection);
-
+        //Set the class according to the selection, and add items according to that class
         switch (classSelection.toLowerCase()) {
             case "1":
                 temp.setClass("Warrior");
+                inv.addItem(ITEMS.starterSword);
                 break;
             case "2":
                 temp.setClass("Wizard");
@@ -56,6 +58,8 @@ public class Character {
                 temp.setClass("Rogue");
                 break;
         }
+
+        //TODO: Add the items that are not class specific (potions etc)
 
         return temp;
     }

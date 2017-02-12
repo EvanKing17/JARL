@@ -24,4 +24,16 @@ public class Inventory {
         return items.get(position);
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+        int position = 1;
+        for (Item item : this.items) {
+            output += "\n" + position + ") " + item.getName() + "\t" + item.getDescription() + "\t" + item.getEffectNumber();
+            position++;
+        }
+
+        return output;
+    }
+
 }

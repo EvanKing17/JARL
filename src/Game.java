@@ -8,13 +8,16 @@ public class Game {
 
     public static void main(String[] args) {
 
+        //Create the default console scanner
         Scanner sc = new Scanner(System.in);
-        Character player = Character.createNewChar(sc);
-        System.out.println(player.toString());
+
+        //New inventory to hold the player's items
+        Inventory inv = new Inventory();
+
+        //Prompts the player to create their character
+        Character player = Character.createNewChar(sc, inv);
 
 
 
     }
-
-
 }
