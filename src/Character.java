@@ -1,10 +1,12 @@
+import java.util.Scanner;
+
 /**
  * Created by Evan on 2/9/2017.
  */
 public class Character {
 
     String name, charClass, gender;
-    int health, mana, stamina, dex, intel, str, cons;
+    int health, gold, mana, stamina, dex, intel, str, cons;
     Inventory inv;
 
     /**
@@ -19,6 +21,43 @@ public class Character {
         this.inv = new Inventory();
         this.name = name;
         this.gender = gender;
+        this.gold = 0;
+    }
+
+    /**
+     * Returns a new character, while handling asking the player what their name, gender, and class is
+     * @param sc
+     * @return
+     */
+    public static Character createNewChar(Scanner sc) {
+        String name, gender;
+        System.out.println("Please enter your character's name: ");
+        name = sc.nextLine();
+        System.out.println("Please enter your character's gender: ");
+        gender = sc.nextLine();
+        Character temp = new Character(name, gender);
+
+        String classSelection = "";
+        while (!(classSelection.equals("1") || classSelection.equals("2") || classSelection.equals("3"))) {
+            System.out.println("What class is your character?\n1) Warrior\n2) Wizard\n3) Rogue");
+            classSelection = sc.nextLine();
+        }
+
+        System.out.println("The class selection is: " + classSelection);
+
+        switch (classSelection.toLowerCase()) {
+            case "1":
+                temp.setClass("Warrior");
+                break;
+            case "2":
+                temp.setClass("Wizard");
+                break;
+            case "3":
+                temp.setClass("Rogue");
+                break;
+        }
+
+        return temp;
     }
 
     /**
@@ -41,6 +80,7 @@ public class Character {
         this.name = name;
         this.gender = gender;
         this.health = health;
+        this.gold = 0;
         this.mana = mana;
         this.stamina = stamina;
         this.dex = dex;
@@ -50,17 +90,26 @@ public class Character {
     }
 
     /**
-     * Set the class of the character (once the player is prompted to choose a class and makes their choice
+     * <p>Set the class of the character (once the player is prompted to choose a class and makes their choice)</p>
      * @param charClass - A string representation of the character's class
      */
     public void setClass(String charClass) {
         this.charClass = charClass;
         if (this.charClass.equals("Warrior")) {
-            //set the stats for the warrior
+            this.dex = 8;
+            this.intel = 6;
+            this.str = 12;
+            this.cons = 8;
         } else if (this.charClass.equals("Wizard")) {
-            //set the stats for wizard
+            this.dex = 6;
+            this.intel = 12;
+            this.str = 4;
+            this.cons = 2;
         } else if (this.charClass.equals("Rogue")) {
-            //set the stats for rogue
+            this.dex = 12;
+            this.intel = 8;
+            this.str = 6;
+            this.cons = 6;
         }
     }
 

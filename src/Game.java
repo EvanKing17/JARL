@@ -1,4 +1,5 @@
 import java.awt.print.Printable;
+import java.util.Scanner;
 
 /**
  * Created by Evan on 2/9/2017.
@@ -6,8 +7,10 @@ import java.awt.print.Printable;
 public class Game {
 
     public static void main(String[] args) {
-        Character def = new Character("Evan", "Male");
-        System.out.println(def.toString());
+
+        Scanner sc = new Scanner(System.in);
+        Character player = Character.createNewChar(sc);
+        System.out.println(player.toString());
 
 
 
