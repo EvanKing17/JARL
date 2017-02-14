@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by Evan on 2/9/2017.
- */
 public class Character {
 
     String name, charClass, gender;
@@ -40,7 +37,7 @@ public class Character {
 
         //While the class selection is not acceptable, prompt continously
         String classSelection = "";
-        while (!(classSelection.equals("1") || classSelection.equals("2") || classSelection.equals("3"))) {
+        while (!Game.validInput(1, 3, classSelection)) {
             System.out.println("What class is your character?\n1) Warrior\n2) Wizard\n3) Rogue");
             classSelection = sc.nextLine();
         }
@@ -50,9 +47,14 @@ public class Character {
             case "1":
                 temp.setClass("Warrior");
                 inv.addItem(ITEMS.starterSword);
+                inv.addItem(ITEMS.starterSword);
+                inv.addItem(ITEMS.starterSword);
+                inv.addItem(ITEMS.starterSword);
+
                 break;
             case "2":
                 temp.setClass("Wizard");
+                inv.addItem(ITEMS.starterStaff);
                 break;
             case "3":
                 temp.setClass("Rogue");
@@ -61,14 +63,17 @@ public class Character {
 
         //TODO: Add the items that are not class specific (potions etc)
 
+
+
         return temp;
     }
 
     /**
+     * @deprecated Instead use Character(String name, String gender), and then set the class
+     * using setClass()
      * <h1>Constructor</h1>
      * <p>Creates a character by taking all of their information at creation. This is not a good way to do it, as it means you
-     * have to brute force the stats. Instead use the Character constructor that takes two strings and then set the class
-     * using setClass()</p>
+     * have to brute force the stats. </p>
      * @param name
      * @param gender
      * @param health

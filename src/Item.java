@@ -1,6 +1,5 @@
-/**
- * Created by Evan on 2/9/2017.
- */
+import java.util.Scanner;
+
 public class Item {
 
     private String type, name, description;
@@ -9,12 +8,14 @@ public class Item {
         return type;
     }
 
-    public int getEffectNumber() {
-        if (this.getType().equals("BLADE")) {
-            Blade blade = (Blade) this;
-            return blade.getAttack();
-        }
-        return 0;
+    public String getEffectNumber() {
+        //Return the relevant stat for the inventory to display. For example, weapons show their attack, and health potions the amount of health they restore
+        //Each item type MUST override this to display stats properly in the inventory.
+        return "";
+    }
+
+    public void activate(Scanner sc) {
+        //MUST be overridden in each item in order to activate that item from the inventory. Otherwise it will never be selectable.
     }
 
     public void setType(String type) {
