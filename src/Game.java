@@ -24,6 +24,9 @@ public class Game {
         inv.getItem(0).setEquipped(true);
         player.setEqWeapon(inv.getItem(0));
         inv.addItem(ITEMS.starterDagger);
+        inv.addItem(ITEMS.generateSword());
+        inv.addItem(ITEMS.generateDagger());
+        inv.addItem(ITEMS.generateStaff());
 
         System.out.println(player.toString());
         inv.accessInv(sc);
