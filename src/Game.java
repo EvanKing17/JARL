@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Game {
 
+    public static Character player;
+
     public static void main(String[] args) {
 
         //Create the default console scanner
@@ -12,8 +14,18 @@ public class Game {
         Inventory inv = new Inventory();
 
         //Prompts the player to create their character
-        Character player = Character.createNewChar(sc, inv);
+        //player = Character.createNewChar(sc, inv);
+        //player.setEqWeapon(inv.getItem(0));
 
+        //Skip character creation for testing
+        player = new Character("Evan", "Male", 100, 100, 100, 8, 6, 12, 8);
+        player.setClass("Warrior");
+        inv.addItem(ITEMS.starterSword);
+        inv.getItem(0).setEquipped(true);
+        player.setEqWeapon(inv.getItem(0));
+        inv.addItem(ITEMS.starterDagger);
+
+        System.out.println(player.toString());
         inv.accessInv(sc);
 
 

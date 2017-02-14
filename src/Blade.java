@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Blade extends Item {
 
     private int attack;
+    private boolean isEquipped;
 
     public Blade(String name, String description, int attack) {
         this.setName(name);
@@ -25,9 +26,11 @@ public class Blade extends Item {
             choice = sc.nextLine();
         }
         if (choice.equals("1")) {
-            System.out.println("\nEQUIP THE SWORD");
-        } else {
-            System.out.println("\nDON'T EQUIP THE SWORD");
+            Item old = Game.player.getEqWeapon();
+            old.setEquipped(false);
+            Game.player.setEqWeapon(this);
+            this.setEquipped(true);
+            System.out.println("You equip the " + this.getName() + ".");
         }
     }
 
@@ -37,5 +40,15 @@ public class Blade extends Item {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    @Override
+    public boolean isEquipped() {
+        return isEquipped;
+    }
+
+    @Override
+    public void setEquipped(boolean equipped) {
+        isEquipped = equipped;
     }
 }

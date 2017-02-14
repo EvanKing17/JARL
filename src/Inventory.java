@@ -33,7 +33,7 @@ public class Inventory {
                 }
             }
             if (!choice.equalsIgnoreCase("Q")) {
-                this.getItem(Integer.parseInt(choice)).activate(sc);
+                this.getItem(Integer.parseInt(choice) - 1).activate(sc);
                 choice = "";
             }
         }
@@ -46,6 +46,9 @@ public class Inventory {
         int position = 1;
         for (Item item : this.items) {
             output += "\n" + position + ") " + item.getName() + "\t" + item.getDescription() + "\t" + item.getEffectNumber();
+            if (item.isEquipped()) {
+                output += "*";
+            }
             position++;
         }
 

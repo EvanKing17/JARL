@@ -5,6 +5,7 @@ public class Character {
     String name, charClass, gender;
     int health, gold, mana, stamina, dex, intel, str, cons;
     Inventory inv;
+    Item eqWeapon;
 
     /**
      * <h1>Constructor</h1>
@@ -47,17 +48,17 @@ public class Character {
             case "1":
                 temp.setClass("Warrior");
                 inv.addItem(ITEMS.starterSword);
-                inv.addItem(ITEMS.starterSword);
-                inv.addItem(ITEMS.starterSword);
-                inv.addItem(ITEMS.starterSword);
-
+                inv.getItem(0).setEquipped(true);
                 break;
             case "2":
                 temp.setClass("Wizard");
                 inv.addItem(ITEMS.starterStaff);
+                inv.getItem(0).setEquipped(true);
                 break;
             case "3":
                 temp.setClass("Rogue");
+
+                inv.getItem(0).setEquipped(true);
                 break;
         }
 
@@ -69,7 +70,7 @@ public class Character {
     }
 
     /**
-     * @deprecated Instead use Character(String name, String gender), and then set the class
+     * *@deprecated Instead use Character(String name, String gender), and then set the class
      * using setClass()
      * <h1>Constructor</h1>
      * <p>Creates a character by taking all of their information at creation. This is not a good way to do it, as it means you
@@ -139,6 +140,16 @@ public class Character {
 
 
     //Getters and Setters
+
+
+    public Item getEqWeapon() {
+        return eqWeapon;
+    }
+
+    public void setEqWeapon(Item eqWeapon) {
+        this.eqWeapon = eqWeapon;
+    }
+
     public String getName() {
         return name;
     }

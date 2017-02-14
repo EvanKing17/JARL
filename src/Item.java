@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Item {
 
     private String type, name, description;
+    private boolean isEquipped;
 
     public String getType() {
         return type;
@@ -16,6 +17,14 @@ public class Item {
 
     public void activate(Scanner sc) {
         //MUST be overridden in each item in order to activate that item from the inventory. Otherwise it will never be selectable.
+    }
+
+    //MUST OVERRIDE FOR ITEMS THAT ARE EQUIPPABLE
+    public boolean isEquipped() {
+        return false;
+    }
+
+    public void setEquipped(boolean equipped) {
     }
 
     public void setType(String type) {
