@@ -1,15 +1,18 @@
 import java.util.Scanner;
 
-public class Blade extends Item {
+/**
+ * Created by Evan on 2/9/2017.
+ */
+public class Staff extends Item {
 
     private int attack;
     private boolean isEquipped;
 
-    public Blade(String name, String description, int attack) {
+    public Staff(String name, String description, int attack) {
         this.setName(name);
         this.setDescription(description);
         this.attack = attack;
-        this.setType("BLADE");
+        this.setType("STAFF");
     }
 
     @Override

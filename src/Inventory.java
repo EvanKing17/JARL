@@ -1,10 +1,7 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-/**
- * Created by Evan on 2/9/2017.
- */
 public class Inventory {
-
 
     private ArrayList<Item> items = new ArrayList<>();
 
@@ -22,6 +19,40 @@ public class Inventory {
 
     public Item getItem(int position) {
         return items.get(position);
+    }
+
+    public void accessInv(Scanner sc) {
+        String choice = "";
+        while (!choice.equalsIgnoreCase("Q")) {
+            while (!Game.validInput(1, this.items.size(), choice)) {
+                System.out.println(this.toString());
+                System.out.println("\nSelect an item, or Q to go back");
+                choice = sc.nextLine();
+                if (choice.equalsIgnoreCase("Q")) {
+                    break;
+                }
+            }
+            if (!choice.equalsIgnoreCase("Q")) {
+                this.getItem(Integer.parseInt(choice) - 1).activate(sc);
+                choice = "";
+            }
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        int position = 1;
+        for (Item item : this.items) {
+            output += "\n" + position + ") " + item.getName() + "\t" + item.getDescription() + "\t" + item.getEffectNumber();
+            if (item.isEquipped()) {
+                output += "*";
+            }
+            position++;
+        }
+
+        return output;
     }
 
 }
