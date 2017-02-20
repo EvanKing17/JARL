@@ -14,8 +14,8 @@ public class Game {
         Inventory inv = new Inventory();
 
         //Prompts the player to create their character
-        //player = Character.createNewChar(sc, inv);
-        //player.setEqWeapon(inv.getItem(0));
+//        player = Character.createNewChar(sc, inv);
+//        player.setEqWeapon(inv.getItem(0));
 
         //Skip character creation for testing
         player = new Character("Evan", "Male", 100, 100, 100, 8, 6, 12, 8);
