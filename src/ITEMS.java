@@ -19,13 +19,13 @@ public class ITEMS {
 
     public static Blade generateSword() {
         int value = ThreadLocalRandom.current().nextInt(0, swordNames.length);
-        int attack = ThreadLocalRandom.current().nextInt(Game.player.health / 20, Game.player.health / 10);
+        int attack = ThreadLocalRandom.current().nextInt(Game.player.health / 15, Game.player.health / 10);
         return new Blade(swordNames[value], swordDescs[value], attack);
     }
 
     public static Dagger generateDagger() {
         int value = ThreadLocalRandom.current().nextInt(0, swordNames.length);
-        int attack = ThreadLocalRandom.current().nextInt(Game.player.health / 20, Game.player.health / 10);
+        int attack = ThreadLocalRandom.current().nextInt(Game.player.health / 15, Game.player.health / 10);
         return new Dagger(daggerNames[value], daggerDescs[value], attack);
     }
 

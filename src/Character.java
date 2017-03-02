@@ -20,6 +20,7 @@ public class Character {
         this.name = name;
         this.gender = gender;
         this.gold = 0;
+        this.health = 100;
     }
 
     /**
@@ -57,7 +58,7 @@ public class Character {
                 break;
             case "3":
                 temp.setClass("Rogue");
-
+                inv.addItem(ITEMS.starterDagger);
                 inv.getItem(0).setEquipped(true);
                 break;
         }

@@ -14,16 +14,16 @@ public class Game {
         Inventory inv = new Inventory();
 
         //Prompts the player to create their character
-        //player = Character.createNewChar(sc, inv);
-        //player.setEqWeapon(inv.getItem(0));
+        player = Character.createNewChar(sc, inv);
+        player.setEqWeapon(inv.getItem(0));
 
         //Skip character creation for testing
-        player = new Character("Evan", "Male", 100, 100, 100, 8, 6, 12, 8);
-        player.setClass("Warrior");
-        inv.addItem(ITEMS.starterSword);
-        inv.getItem(0).setEquipped(true);
-        player.setEqWeapon(inv.getItem(0));
-        inv.addItem(ITEMS.starterDagger);
+//        player = new Character("Evan", "Male", 100, 100, 100, 8, 6, 12, 8);
+//        player.setClass("Warrior");
+//        inv.addItem(ITEMS.starterSword);
+//        inv.getItem(0).setEquipped(true);
+//        player.setEqWeapon(inv.getItem(0));
+//        inv.addItem(ITEMS.starterDagger);
         inv.addItem(ITEMS.generateSword());
         inv.addItem(ITEMS.generateDagger());
         inv.addItem(ITEMS.generateStaff());
